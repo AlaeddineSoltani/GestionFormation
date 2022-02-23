@@ -122,33 +122,6 @@ private static final Logger logger = LogManager.getLogger(FormateurServiceTest.c
 	@AfterEach
 	void setUpDataBase() {
 	   formateurRepository.deleteAll();
-	}
-	
-//	private void clearDatabase() throws Exception {
-//		  DataSource ds = (DataSource) .getBean("mydataSource");
-//		  Connection connection = null;
-//		  try {
-//		    connection = ds.getConnection();
-//		    try {
-//		      Statement stmt = connection.createStatement();
-//		      try {
-//		        stmt.execute("TRUNCATE SCHEMA PUBLIC RESTART IDENTITY AND COMMIT NO CHECK");
-//		        connection.commit();
-//		      } finally {
-//		        stmt.close();
-//		      }
-//		    } catch (SQLException e) {
-//		        connection.rollback();
-//		        throw new Exception(e);
-//		    }
-//		    } catch (SQLException e) {
-//		        throw new Exception(e);
-//		    } finally {
-//		        if (connection != null) {
-//		            connection.close();
-//		        }
-//		    }
-//		}
-		
+	}		
 	}
 
