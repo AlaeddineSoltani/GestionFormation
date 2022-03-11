@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class FormateurServiceTest {
 	logger.debug("entring testAddFormateur methode");
 	long start = System.currentTimeMillis();
 	formateurService.addFormateur(testformateur);
-		assertTrue(formateurService.listFormateurs().contains(testformateur));
+		assertThat(formateurService.listFormateurs().contains(testformateur));
 		long elapsedTime = System.currentTimeMillis() - start ;
 	logger.info("Method execution time: " + elapsedTime + " milliseconds.");
 	logger.debug("quiting testAddFormateur methode");
