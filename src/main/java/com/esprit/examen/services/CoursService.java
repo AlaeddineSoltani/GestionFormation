@@ -1,15 +1,12 @@
 package com.esprit.examen.services;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.esprit.examen.entities.Cours;
-import com.esprit.examen.entities.Session;
 import com.esprit.examen.repositories.CoursRepository;
-import com.esprit.examen.repositories.SessionRepository;
 
 @Service
 public class CoursService implements ICoursService {

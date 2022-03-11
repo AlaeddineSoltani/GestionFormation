@@ -28,12 +28,12 @@ public class FormateurServiceTest {
 	private static String PASSWORD ="password" ;
 	private static String NOM = "flen";
 	private static String PRENOM = "ben foulen";
-	private static Poste POST=  Poste.Ingénieur;
+	private static Poste POST=  Poste.INGENIEUR;
 	private Formateur testformateur = new Formateur( NOM, PRENOM, POST, CONTRAT, EMAIL, PASSWORD);
-    private Formateur testformateur2 = new Formateur( "f1", "P1", Poste.Technicien, Contrat.EXPERT, "f1@gamil.com", "passF1");
-    private Formateur testformateur3 = new Formateur( "f2", "P1", Poste.Ingénieur, Contrat.FREELANCE, "f2@gmail.com", "PasF2");
-private static final Logger logger = LogManager.getLogger(FormateurServiceTest.class);
- 
+    private Formateur testformateur2 = new Formateur( "f1", "P1", Poste.TECHINICIEN, Contrat.EXPERT, "f1@gamil.com", "passF1");
+    private Formateur testformateur3 = new Formateur( "f2", "P1", Poste.INGENIEUR, Contrat.FREELANCE, "f2@gmail.com", "PasF2");
+    private static final Logger logger = LogManager.getLogger(FormateurServiceTest.class);
+
 	@BeforeEach
 	void clearDataBase() {
 	   formateurRepository.deleteAll();

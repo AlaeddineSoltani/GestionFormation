@@ -1,12 +1,12 @@
 package com.esprit.examen.services;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.esprit.examen.entities.Formateur;
-import com.esprit.examen.entities.TypeCours;
 import com.esprit.examen.repositories.FormateurRepository;
 import com.esprit.examen.repositories.SessionRepository;
 
@@ -39,12 +39,6 @@ public class FormateurService implements IFormateurService{
 	public List<Formateur> listFormateurs() {
 		
 		return (List<Formateur>)formateurRepository.findAll();
-	}
-
-	@Override
-	public void getFormateurBySession(Long idSession) {
-		 sessionRepository.findById(idSession).get().getFormateur().getNom();
-	
 	}
 
 	@Override

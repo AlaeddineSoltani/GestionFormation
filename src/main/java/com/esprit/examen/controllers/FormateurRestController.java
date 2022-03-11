@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.esprit.examen.entities.Cours;
 import com.esprit.examen.entities.Formateur;
-import com.esprit.examen.entities.TypeCours;
 import com.esprit.examen.services.IFormateurService;
 import com.esprit.examen.services.ISessionService;
 
@@ -42,18 +40,7 @@ public class FormateurRestController {
 	public void supprimerFormateur(@PathVariable("formateurId") Long formateurId) {
 		formateurService.supprimerFormateur(formateurId);
 	}
-//	
-//	@GetMapping("/nombreFormateursImpliquesDansUnCours/{typeCours}")
-//	@ResponseBody
-//	public Long nombreFormateursImpliquesDansUnCours(@PathVariable("typeCours") TypeCours typeCours) {
-//		Long nombreFormateurs=formateurService.nombreFormateursImpliquesDansUnCours(typeCours);
-//		return nombreFormateurs;
-//	}
-	@GetMapping("/getFormateurBySession/{sessionId}")
-	@ResponseBody
-	public  void formateurBySession(@PathVariable("sessionId")Long id){
-		 formateurService.getFormateurBySession(id);
-	}
+
 	@GetMapping("/countFormateur")
 	@ResponseBody
 	public  Integer formateurBySession(){
