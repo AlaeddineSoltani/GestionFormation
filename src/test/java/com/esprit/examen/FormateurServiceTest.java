@@ -123,6 +123,6 @@ private static final Logger logger = LogManager.getLogger(FormateurServiceTest.c
 	void setUpDataBase() {
 	   formateurRepository.deleteAll();
 	}
-	
+	 
 	}
 
