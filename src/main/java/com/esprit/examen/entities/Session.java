@@ -77,14 +77,22 @@ public class Session implements Serializable{
 		return "Session [id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", duree=" + duree
 				+ ", description=" + description + "]";
 	}
-	public Session(Long id, Date dateDebut, Date dateFin, Long duree, String description) {
-		super();
-		this.id = id;
+
+	public Session(Date dateDebut, Date dateFin, Long duree, String description) {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.duree = duree;
 		this.description = description;
 	}
+
+	public Session(Date dateDebut, Date dateFin, Long duree, String description, Formateur formateur) {
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.duree = duree;
+		this.description = description;
+		this.formateur = formateur;
+	}
+
 	public Session() {
 		super();
 		// TODO Auto-generated constructor stub

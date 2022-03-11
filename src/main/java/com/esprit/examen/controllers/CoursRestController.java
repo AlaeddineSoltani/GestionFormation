@@ -20,7 +20,10 @@ import com.esprit.examen.services.ICoursService;
 public class CoursRestController {
 @Autowired
 ICoursService coursService;
-
+@GetMapping("testM")
+public String test() {
+	return "hallo there";
+}
 @PostMapping("/ajouterCours")
 @ResponseBody
 public Cours ajouterCours(@RequestBody Cours cours) {

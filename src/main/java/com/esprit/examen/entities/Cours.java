@@ -1,6 +1,7 @@
 package com.esprit.examen.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -23,6 +24,7 @@ public class Cours implements Serializable {
 	private String intitule;
 	@ManyToMany(mappedBy="cours")
 	private Set<Session> sessions;
+
 	public Long getId() {
 		return id;
 	}
@@ -67,10 +69,37 @@ public class Cours implements Serializable {
 		this.typeCours = typeCours;
 		this.intitule = intitule;
 	}
+
+	public Cours(String description, TypeCours typeCours, String intitule) {
+		super();
+		this.description = description;
+		this.typeCours = typeCours;
+		this.intitule = intitule;
+	}
+
 	public Cours() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
-	
-	
+
+	public Cours(String description, TypeCours typeCours, String intitule, Set<Session> sessions) {
+		super();
+		this.description = description;
+		this.typeCours = typeCours;
+		this.intitule = intitule;
+		this.sessions = sessions;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Cours)) return false;
+		Cours cours = (Cours) o;
+		return Objects.equals(description, cours.description) && typeCours == cours.typeCours && Objects.equals(intitule, cours.intitule);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(description, typeCours, intitule);
+	}
 }

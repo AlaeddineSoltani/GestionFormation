@@ -9,6 +9,8 @@ import com.esprit.examen.entities.Session;
 import com.esprit.examen.repositories.FormateurRepository;
 import com.esprit.examen.repositories.SessionRepository;
 
+import java.util.List;
+
 @Service
 public class SessionService implements ISessionService{
 
@@ -27,6 +29,11 @@ public class SessionService implements ISessionService{
 	}
 
 	@Override
+	public List<Session> listSession() {
+		return (List<Session>)sessionRepository.findAll();
+	}
+
+	@Override
 	public void supprimerSession(Long sessionId) {
 		sessionRepository.deleteById(sessionId);
 	}
@@ -34,7 +41,8 @@ public class SessionService implements ISessionService{
 	@Override
 	public void affecterFormateurASession(Long formateurId, Long sessionId) {
 			/*todo*/
-		
+
 	}
+
 
 }

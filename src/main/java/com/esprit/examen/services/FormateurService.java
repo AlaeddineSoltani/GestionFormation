@@ -43,7 +43,7 @@ public class FormateurService implements IFormateurService{
 
 	@Override
 	public void getFormateurBySession(Long idSession) {
-		 sessionRepository.findById(idSession).get().getFormateur().getNom();
+		// sessionRepository.findById(idSession).get().getFormateur().getNom();
 	
 	}
 
