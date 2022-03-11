@@ -43,7 +43,7 @@ public class FormateurServiceTest {
 	logger.debug("entring testAddFormateur methode");
 	long start = System.currentTimeMillis();
 	formateurService.addFormateur(testformateur);
-		assertThat(formateurService.listFormateurs().contains(testformateur));
+	assertTrue(formateurService.listFormateurs().contains(testformateur));
 		long elapsedTime = System.currentTimeMillis() - start ;
 	logger.info("Method execution time: " + elapsedTime + " milliseconds.");
 	logger.debug("quiting testAddFormateur methode");
