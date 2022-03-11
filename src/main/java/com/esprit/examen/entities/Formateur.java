@@ -1,6 +1,7 @@
 package com.esprit.examen.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -43,6 +44,20 @@ public class Formateur implements Serializable{
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Formateur other = (Formateur) obj;
+		return contrat == other.contrat && Objects.equals(email, other.email) && Objects.equals(nom, other.nom)
+				&& Objects.equals(password, other.password) && poste == other.poste
+				&& Objects.equals(prenom, other.prenom);
 	}
 	public String getNom() {
 		return nom;
@@ -117,7 +132,6 @@ public class Formateur implements Serializable{
 	}
 	public Formateur() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

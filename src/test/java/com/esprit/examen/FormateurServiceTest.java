@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class FormateurServiceTest {
 	logger.debug("entring testAddFormateur methode");
 	long start = System.currentTimeMillis();
 	formateurService.addFormateur(testformateur);
-		assertThat(formateurService.listFormateurs().contains(testformateur));
+		assertTrue(formateurService.listFormateurs().contains(testformateur));
 		long elapsedTime = System.currentTimeMillis() - start ;
 	logger.info("Method execution time: " + elapsedTime + " milliseconds.");
 	logger.debug("quiting testAddFormateur methode");
@@ -54,9 +55,9 @@ public class FormateurServiceTest {
 	logger.debug("entring testDeleteFormateur methode");
 	long start = System.currentTimeMillis();
 	formateurService.addFormateur(testformateur);
-		assertThat(formateurService.listFormateurs().contains(testformateur));
+		assertTrue(formateurService.listFormateurs().contains(testformateur));
      formateurService.supprimerFormateur(testformateur.getId());
-     assertThat(formateurService.listFormateurs().contains(testformateur)==false);
+     assertTrue(formateurService.listFormateurs().contains(testformateur)==false);
 		long elapsedTime = System.currentTimeMillis() - start ;
 	logger.info("Method execution time: " + elapsedTime + " milliseconds.");
 	logger.debug("quiting testAddFormateur methode");	
@@ -90,9 +91,9 @@ public class FormateurServiceTest {
 			formateurService.addFormateur(f);
 		}
 		List<Formateur> listFormateurSaved = (List<Formateur>) formateurService.listFormateurs(); 
-		assertThat(listFormateurSaved.contains(testformateur));
-		assertThat(listFormateurSaved.contains(testformateur2));
-		assertThat(listFormateurSaved.contains(testformateur3));
+		assertTrue(listFormateurSaved.contains(testformateur));
+		assertTrue(listFormateurSaved.contains(testformateur2));
+		assertTrue(listFormateurSaved.contains(testformateur3));
 		long elapsedTime = System.currentTimeMillis() - start ;
 		logger.info("Method execution time: " + elapsedTime + " milliseconds.");
 		logger.debug("quiting testmodifierFormateur methode");
