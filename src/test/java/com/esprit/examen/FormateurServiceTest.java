@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class FormateurServiceTest {
 	formateurService.addFormateur(testformateur);
 		assertTrue(formateurService.listFormateurs().contains(testformateur));
      formateurService.supprimerFormateur(testformateur.getId());
-     assertTrue(formateurService.listFormateurs().contains(testformateur)==false);
+     assertFalse(formateurService.listFormateurs().contains(testformateur));
 		long elapsedTime = System.currentTimeMillis() - start ;
 	logger.info("Method execution time: " + elapsedTime + " milliseconds.");
 	logger.debug("quiting testAddFormateur methode");	
@@ -67,7 +68,6 @@ public class FormateurServiceTest {
 		long start = System.currentTimeMillis();
         formateurService.addFormateur(testformateur);
 		testformateur.setNom("new flen");
-		System.out.print(testformateur.getNom());
 		testformateur.setPassword("new password");
 		formateurService.modifierFormateur(testformateur);
 		Formateur formateurModifier = (Formateur) formateurService.listFormateurs().get(0);
@@ -115,10 +115,7 @@ public class FormateurServiceTest {
 		logger.info("Method execution time: " + elapsedTime + " milliseconds.");
 		logger.debug("quiting testmodifierFormateur methode");
 	}
-	@Test
-	public void testGetFormateurBySession(){
-		
-	}
+
 	@AfterEach
 	void setUpDataBase() {
 	   formateurRepository.deleteAll();
