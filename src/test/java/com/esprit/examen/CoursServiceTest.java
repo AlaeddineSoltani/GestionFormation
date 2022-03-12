@@ -36,6 +36,7 @@ import static org.assertj.core.api.Assertions.assertThat;
     private static String INTITULE = "Angular";
     private Set<Session> sessions;
     private Cours cours1 = new Cours( DESCRIPTION, TYPECOUR, INTITULE ,sessions);
+    private Cours cours = new Cours( DESCRIPTION, TYPECOUR, INTITULE);
     Date dateDebut = new Date(2021, 7,2 );
     Date datefin = new Date(2021, 8,2 );
     private Formateur formateur= new Formateur("nour", "laabbidi", Poste.Ingénieur, Contrat.CIVP, "nour@gmail.com", "nour");
@@ -63,6 +64,15 @@ import static org.assertj.core.api.Assertions.assertThat;
         Cours c1=  (Cours)coursService.getCours().get(0);
         assertThat(c1.equals(cours1)).isTrue();
     }
+    @Test
+    void testAddCours2() throws ParseException{
+
+        l.debug("Save cours");
+        coursService.addCours(cours1);
+        Cours c1=  (Cours)coursService.getCours().get(0);
+        assertThat(c1.equals(cours1)).isTrue();
+        l.debug("quitting addCours methode");
+    }
 
    @Test
     void testDeleteCours() throws ParseException{
@@ -74,6 +84,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         int size = coursService.getCours().size();
         assertThat(size==0).isTrue();
         assertThat(!coursService.getCours().contains(c1)).isTrue();
+       l.debug("quiting testDeleteCours methode");
     }
     @Test
     void testModifierCours() throws ParseException{
@@ -85,6 +96,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         coursService.addCours(cours1);
         Cours c1=  (Cours)coursService.getCours().get(0);
         assertThat(!c1.equals(cours1)).isFalse();
+        l.debug("quiting TestModifierCours methode");
     }
 
 
